@@ -37,10 +37,10 @@
             <div class="form" id="signupForm">
                 <div class="buttons">
                     <h1 class="heading">Register</h1>
-                    <input type="text" placeholder="Username" autocomplete="off" class="username" required>
-                    <input type="email" name="email" placeholder="Email" autocomplete="off" class="email" required>
-                    <input type="email" placeholder="Confirm email" autocomplete="off" class="email" required>
-                    <button class="login-btn" type="submit" onclick="signup(event)">Register</button>
+                    <input type="text" placeholder="Username" id="username" autocomplete="off" class="username" required>
+                    <input type="email" name="email" placeholder="Email" id="emailFirst" autocomplete="off" class="email" onkeyup="checkValid()" required>
+                    <input type="email" placeholder="Confirm email" id="emailConfirm" autocomplete="off" class="email" onkeyup="checkValid()" required>
+                    <button class="login-btn" id="loginButton" type="submit" onclick="signup(event)" disabled>Register</button>
                     <a href="login.html" class="link underline">already have an account? log in -></a>
                 </div>
             </div>
@@ -56,6 +56,18 @@
     <script>
         const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbx8nOQZSp-XuunWiviueTWBEqBWaOTtTYEr34lMYq35nM0N9KJ91YGdi-ZOtzOfpOJ5Ag/exec";
         
+        function checkValid() {
+            if(document.getElementById("emailConfirm").value==="" || 
+                document.getElementById("emailConfirm").value!==document.getElementById("emailFirst").value ||
+                document.getElementById("username").value==="" ||
+                !document.getElementById("emailFirst").value.includes(".") ||
+                !document.getElementById("emailFirst").value.includes("@")) {
+                document.getElementById('loginButton').disabled = true;
+            } else {
+                document.getElementById('loginButton').disabled = false;
+            }
+        }
+
         function signup(event) {
             event.preventDefault();
             console.log("Signup function called"); // Debug

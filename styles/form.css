@@ -32,7 +32,7 @@ input::placeholder {
 }
 
 input:focus,
-.login-btn:hover {
+.login-btn:enabled:hover {
     background: #fff;
     color: #000;
 }
@@ -46,6 +46,16 @@ input:focus::placeholder {
     padding: 0 20px;
     cursor: pointer;
     margin: 20px auto 0;
+}
+
+.login-btn:disabled {
+    background: rgba(113, 113, 113, 0.248);
+    color: #bababa;
+    cursor:default;
+}
+
+.login-btn:enabled {
+    background: rgba(255, 255, 255, 0.39);
 }
 
 .link {
