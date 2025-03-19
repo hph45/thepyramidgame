@@ -1,0 +1,89 @@
+<!--
+    psql -> 
+    CREATE DATABASE loginformpyramidone;
+    \c loginformpyramidone;
+    CREATE TABLE users (id serial not null primary key, username varchar(255) not null unique, email varchar(255) not null unique, password varchar(255) not null);
+
+    new terminal tab ->
+    npm start
+    // pushes to port 3000
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>PYRAMID</title>
+    <link rel="icon" href="/images/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="styles/index.css" media="all">
+</head>
+
+<body>
+    <div id="takeoverriskpopup" class="hidden">
+        <div class="closepopup hamburger-menu">
+            <div class="ham-bar bar-top2"></div>
+            <div class="ham-bar bar-mid2"></div>
+            <div class="ham-bar bar-bottom2"></div>
+        </div>
+        <div class="takeoverriskpopuptitle">
+            <h3>Takeover Risk: </h3>
+            <h3 id="risklevel">very low</h3>
+        </div>
+    </div>
+    <div class="body-home">
+        <div class="animate1">
+            <h2 class="animate3">Welcome </h2>
+            <h2 class="greeting animate2"></h2>
+        </div>
+        <div class="animate4">
+            <div class="top-of-home">
+                <h4 class="idcode">ID Code: 201</h4>
+                <h4 class="corpname">Affiliation: Alpha Corp.</h4>
+            </div>
+            <div class="corpabove corps">
+                <p>Charlie Corp.</p>
+                <p>Valuation: $201</p>
+                <p>Members: 288</p>
+            </div>
+            <div class="topdivider">
+                <a class="takeover1" href="javascript:void(0)">
+                    <span> v Takeover Risk v </span>
+                </a>
+            </div>
+            <div class="yourcorp corps">
+                <p>Alpha Corp.</p>
+                <p>Valuation: $178</p>
+                <!-- <p class="valneeded">Needed for takeover: $160x2.5+$0.01 = $400.01</p> -->
+                <p>Members: 245</p>
+                <p>Current payout: $4.22</p>
+            </div>
+            <div class="bottomdivider">
+                <a class="takeover2" href="javascript:void(0)">
+                    <span> v Takeover v </span>
+                </a>
+            </div>
+            <div class="corpbelow corps">
+                <p>Echo Corp.</p>
+                <p>Valuation: $160</p>
+                <p>Members: 261</p>
+            </div>
+        </div>
+    </div>
+    <a class="logout" href="/">
+        <span>Sign Out</span>
+    </a>
+    <div class='footer'>
+        <p class='server-performance'>0%</p>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"
+        integrity="sha512-z4OUqw38qNLpn1libAN9BsoDx6nbNFio5lA6CuTp9NlK83b89hgyCVq+N5FdBJptINztxn1Z3SaKSKUS5UP60Q=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="scripts/jquery-3.6.1.min.js"></script>
+    <script src="scripts/main.js"></script>
+    <script src="scripts/home.js"></script>
+</body>
+
+</html>

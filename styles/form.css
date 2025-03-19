@@ -1,0 +1,99 @@
+.form {
+    width: 400px;
+    height: auto;
+    color: white;
+}
+
+.heading {
+    text-transform: capitalize;
+    text-align: center;
+    font-size: 60px;
+    font-weight: 300;
+    margin-bottom: 40px;
+}
+
+input,
+.login-btn {
+    width: 60%;
+    height: 35px;
+    display: block;
+    margin: 10px auto;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.39);
+    border: none;
+    color: white;
+    padding: 15px;
+    transform: .5s;
+    transition-duration: 0.2s;
+}
+
+input::placeholder {
+    color: white;
+}
+
+input:focus,
+.login-btn:hover {
+    background: #fff;
+    color: #000;
+}
+
+input:focus::placeholder {
+    color: #000;
+}
+
+.login-btn {
+    width: auto;
+    padding: 0 20px;
+    cursor: pointer;
+    margin: 20px auto 0;
+}
+
+.link {
+    text-align: center;
+    text-transform: capitalize;
+    display: inline-block;
+    text-decoration: none;
+    position: relative;
+    color: #0087ca;
+    margin: 30px auto;
+    font-size: small;
+    color: rgba(225, 225, 225, 1);
+}
+
+/* BACKGROUND ANIMATION ########### */
+
+section .container .element {
+    background-color: #088F8F;
+}
+
+.container.c2{
+    margin-top: -390px;
+    z-index: -1;
+}
+
+.container.c3{
+    margin-top: -335px;
+    z-index: -1;
+}
+
+/* ######### ALERT BOX */
+
+.alert-box {
+    z-index: 4;
+    border-radius: 5px;
+    position: absolute;
+    top: -100%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-transform: capitalize;
+    height: auto;
+    width: auto;
+    padding: 15px;
+    max-width: 90%;
+    min-width: 200px;
+    background: #ff7777;
+    border-left: 8px solid #ae0000;
+    color: rgb(0, 0, 0);
+    text-align: left;
+    transition: 1s;
+}
