@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,12 +8,9 @@
     <link rel="stylesheet" type="text/css" href="styles/index.css" media="all">
     <link rel="stylesheet" type="text/css" href="styles/form.css" media="all">
 </head>
-
 <body>
     <div class="header">
-        <a id="name" href="index.html">
-            <h1>PYRAMID</h1>
-        </a>
+        <a id="name" href="index.html"><h1>PYRAMID</h1></a>
         <div class="on-screen-menu">
             <a class="underline" href="leaderboard.html">Leaderboard</a>
             <a class="underline" href="rules.html">Rules</a>
@@ -36,35 +32,51 @@
         </nav>
     </div>
     <div class="body-main">
-        <div class="alert-box">
-            <p class="alert">hello</p>
-        </div>
+        <div class="alert-box"><p class="alert">hello</p></div>
         <div class="text-body-login">
-            <div class="form">
+            <div class="form" id="signupForm">
                 <div class="buttons">
                     <h1 class="heading">Register</h1>
-                    <input type="username" placeholder="Username" autocomplete="off" class="username" required>
-                    <input type="email" placeholder="Email" autocomplete="off" class="email" required>
-                    <input type="password" placeholder="Password" autocomplete="off" class="password" required>
-                    <button class="login-btn">Register</button>
+                    <input type="text" placeholder="Username" autocomplete="off" class="username" required>
+                    <input type="email" name="email" placeholder="Email" autocomplete="off" class="email" required>
+                    <input type="email" placeholder="Confirm email" autocomplete="off" class="email" required>
+                    <button class="login-btn" type="submit" onclick="signup(event)">Register</button>
                     <a href="login.html" class="link underline">already have an account? log in -></a>
                 </div>
             </div>
         </div>
-        <section>
-            <div class="container c2"></div>
-        </section>
+        <section><div class="container c2"></div></section>
     </div>
-    <div class='footer'>
-        <p class='server-performance'>0%</p>
-    </div>
+    <div class='footer'><p class='server-performance'>0%</p></div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"
-        integrity="sha512-z4OUqw38qNLpn1libAN9BsoDx6nbNFio5lA6CuTp9NlK83b89hgyCVq+N5FdBJptINztxn1Z3SaKSKUS5UP60Q=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <script src="scripts/jquery-3.6.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha512-z4OUqw38qNLpn1libAN9BsoDx6nbNFio5lA6CuTp9NlK83b89hgyCVq+N5FdBJptINztxn1Z3SaKSKUS5UP60Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="scripts/jquery-3.6.1.min.js"></script>
     <script src="scripts/main.js"></script>
     <script src="scripts/form.js"></script>
+    <script>
+        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbx8nOQZSp-XuunWiviueTWBEqBWaOTtTYEr34lMYq35nM0N9KJ91YGdi-ZOtzOfpOJ5Ag/exec";
+        
+        function signup(event) {
+            event.preventDefault();
+            console.log("Signup function called"); // Debug
+            const email = document.querySelector('input[name="email"]').value;
+            console.log("Email:", email); // Debug
+            fetch(SCRIPT_URL + '?action=signup', {
+                method: 'POST',
+                body: new URLSearchParams({ email: email }),
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+            })
+            .then(response => {
+                console.log("Response status:", response.status); // Debug
+                return response.text();
+            })
+            .then(result => {
+                console.log("Result:", result); // Debug
+            })
+            .catch(error => {
+                console.error("Error:", error); // Debug
+            });
+        }
+    </script>
 </body>
-
 </html>
